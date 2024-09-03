@@ -27,3 +27,8 @@ class JobApplication(models.Model):
     requested_position = models.ForeignKey(to="jobs.JobPosition", on_delete=models.CASCADE)
     request_date = models.DateField(auto_now_add=True)
     job_seeker = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class JobRequest(models.Model):
+    requested_job = models.ForeignKey(to="jobs.JobPosition", on_delete=models.CASCADE)
+    job_seeker_sender = models.ForeignKey(to="job_seeker.JobSeeker", on_delete=models.CASCADE)
